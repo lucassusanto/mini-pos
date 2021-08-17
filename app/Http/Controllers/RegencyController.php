@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Regency;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class RegencyController extends Controller
@@ -23,5 +24,18 @@ class RegencyController extends Controller
         $regencies = $regencies->get()->toArray();
 
         return response()->json(['regencies' => $regencies]);
+    }
+
+    public function test()
+    {
+        $transactionDateTime = '2021/08/16';
+
+        $transactionDateTime = Carbon::parse($transactionDateTime)
+            ->startOfMonth()
+            ->addWeek()
+            ->endOfDay()
+            ->format('Y-m-d H:i:s');
+
+        ddd($transactionDateTime);
     }
 }

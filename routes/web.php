@@ -23,3 +23,4 @@ Route::resource('products', ProductController::class);
 // API
 // http://localhost/regencies?id=abcd-1234-defg-5678&name=surabaya
 Route::get('regencies', [RegencyController::class, 'index']);
+Route::get('regencies/test', [RegencyController::class, 'test']);
